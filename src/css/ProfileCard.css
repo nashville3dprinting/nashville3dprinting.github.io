@@ -1,0 +1,79 @@
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--nav-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.profile-photo {
+  width: 64px; 
+  height: 64px; 
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.profile-meta {
+  flex: 1;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.profile-title {
+  margin: 2px 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.profile-bio {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.profile-contact {
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+.profile-contact a {
+  color: var(--link);
+  text-decoration: none;
+}
+.profile-contact a:hover {
+  text-decoration: underline;
+}
+
+.profile-card.founder {
+  max-width: 600px;   /* tweak: 500–700px */
+  margin: 0 auto;     /* center in page */
+}
+
+/* Employee cards remain compact grid items */
+.profile-card.employee {
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: none;   /* lighter look for lists */
+}
+
+@media (max-width: 480px) {
+  .profile-photo {
+    width: 56px;
+    height: 56px;
+  }
+  .profile-name {
+    font-size: 0.95rem;
+  }
+  .profile-bio {
+    font-size: 0.8rem;
+  }
+}

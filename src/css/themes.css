@@ -1,0 +1,119 @@
+:root {
+  /* base colors */
+  --bg: #ffffff;
+  --text: #0b1220;
+  --muted: #5a667c;
+  --surface: #f3f5f9;
+  --surface-2: #e7ecf5;
+  --accent: #0d6efd;
+
+  /* navigation & footer */
+  --nav-bg: #0f1115;
+  --nav-border: #1b1f2a;
+  --link: #0d6efd;
+  --footer-bg: #0f1115;
+  --footer-border: #1b1f2a;
+
+  /* radius & shadows */
+  --radius: 12px;
+  --shadow: 0 2px 6px rgba(0,0,0,.15);
+
+  /* brand */
+  --brand: var(--accent);
+  --brand-contrast: #ffffff;
+  --link-hover: color-mix(in oklab, var(--link) 85%, black);
+
+  /* hero text */
+  --hero-fg: #ffffff;
+  --hero-shadow: 0 2px 24px rgba(0,0,0,.45);
+
+  /* hero panel (slightly transparent) */
+  --hero-panel-bg: rgba(15, 17, 21, 0.85);    /* 85% opaque black */
+  --hero-panel-fg: #ffffff;
+  --hero-panel-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+/* ============================
+   DARK THEME
+============================ */
+:root[data-theme="dark"] {
+  --bg: #0b0e14;
+  --text: #e6ecff;
+  --muted: #b3bfd6;
+  --surface: #0f1115;
+  --surface-2: #171c28;
+  --accent: #89b4ff;
+
+  --nav-bg: #0f1115;
+  --nav-border: #1b1f2a;
+  --link: #89b4ff;
+  --link-hover: color-mix(in oklab, var(--link) 85%, white);
+
+  --brand: var(--accent);
+  --brand-contrast: #0b0e14;
+
+  --hero-fg: #f6f7ff;
+  --hero-shadow: 0 2px 28px rgba(0,0,0,.6);
+
+  /* slightly transparent panel */
+  --hero-panel-bg: rgba(15, 17, 21, 0.85);
+  --hero-panel-fg: #ffffff;
+  --hero-panel-shadow: 0 12px 36px rgba(0,0,0,.25);
+  --hero-panel-border: white 1px solid;
+} 
+/* 9z#kMl!@ */
+
+/* ============================
+   LIGHT THEME
+============================ */
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #0b1220;
+  --muted: #5a667c;
+  --surface: #f6f8fc;
+  --surface-2: #eef2f9;
+  --accent: #0d6efd;
+
+  --nav-bg: #ffffff;
+  --nav-border: #e6eaf2;
+  --link: #0d6efd;
+  --link-hover: color-mix(in oklab, var(--link) 85%, black);
+
+  --brand: var(--accent);
+  --brand-contrast: #ffffff;
+
+  --hero-fg: #ffffff;
+  --hero-shadow: 0 2px 24px rgba(0,0,0,.45);
+
+  /* slightly transparent panel */
+  --hero-panel-bg: rgba(15, 17, 21, 0.85);
+  --hero-panel-fg: #ffffff;
+  --hero-panel-shadow: 0 10px 30px rgba(0,0,0,.25);
+  --hero-panel-border: black 1px solid;
+}
+
+/* ============================
+   SYSTEM PREF FALLBACK
+============================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) { color-scheme: dark; }
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) { color-scheme: light; }
+}
+
+/* ============================
+   BASE STYLES
+============================ */
+html, body, #root {
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+}

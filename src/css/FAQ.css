@@ -1,0 +1,260 @@
+/* src/css/FAQ.css */
+
+.faq-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.faq-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.faq-header p {
+  margin: 0 0 16px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Search */
+.faq-search-wrapper {
+  max-width: 480px;
+  margin: 0 auto 20px;
+}
+
+.faq-search-wrapper input {
+  width: 100%;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--nav-border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+/* No results */
+.faq-no-results {
+  text-align: center;
+  margin: 12px 0 24px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Sections */
+.faq-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Category card */
+.faq-section {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--nav-border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Category Header */
+.faq-section-header {
+  width: 100%;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  background: var(--surface-2);
+  border-left: 4px solid var(--brand);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+
+.faq-section-header:hover {
+  background: color-mix(in oklab, var(--surface-2) 85%, var(--brand) 15%);
+}
+
+.faq-section-title {
+  flex: 1;
+  font-weight: 600;
+  color: var(--brand);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.faq-section-icon {
+  font-size: 0.95rem;
+}
+
+.faq-section-count {
+  min-width: 110px;
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.faq-section-chevron {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+  margin-left: 4px;
+}
+
+.faq-section-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* Category body (animates in when opened) */
+.faq-section-body {
+  padding: 6px 14px 12px;
+  border-top: 1px solid var(--nav-border);
+  animation: faq-section-body-in 0.18s ease-out;
+}
+
+@keyframes faq-section-body-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Individual QA container */
+.faq-item {
+  margin: 6px 0;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.15s ease;
+}
+
+.faq-item + .faq-item {
+  margin-top: 8px;
+}
+
+.faq-item:hover {
+  background: var(--surface-2);
+  transform: translateY(-1px);
+}
+
+/* Question row */
+.faq-question {
+  width: 100%;
+  padding: 4px 0;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+}
+
+/* Question text + icon */
+.faq-question span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.faq-question span:first-child::before {
+  content: "❓";
+  font-size: 0.9rem;
+  color: var(--brand);
+}
+
+/* Question chevron */
+.faq-question-chevron {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.faq-question-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* Answer block – tinted background for HTML content */
+.faq-answer {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: calc(var(--radius) - 2px);
+  background: color-mix(in oklab, var(--surface-2) 85%, var(--brand) 8%);
+  border: 1px solid var(--nav-border);
+  line-height: 1.5;
+  color: var(--text);
+  font-size: 0.9rem;
+  animation: faq-answer-in 0.18s ease-out;
+}
+
+/* If you're rendering plain <p> inside, this keeps spacing tidy */
+.faq-answer p {
+  margin: 0;
+}
+
+/* Smooth fade/slide-in when answers open */
+@keyframes faq-answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact block */
+.faq-contact {
+  margin-top: 32px;
+  padding: 18px 16px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  border: 1px solid var(--nav-border);
+  text-align: center;
+}
+
+.faq-contact h2 {
+  margin-bottom: 6px;
+  font-size: 1.2rem;
+}
+
+.faq-contact p {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.faq-contact-button {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--brand);
+  background: var(--brand);
+  color: var(--brand-contrast);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .faq-page {
+    padding-inline: 16px;
+  }
+
+  .faq-header h1 {
+    font-size: 1.5rem;
+  }
+}

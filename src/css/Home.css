@@ -1,0 +1,18 @@
+.home {
+  font-family: system-ui, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.home h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 2.2rem;
+  color: var(--text);
+}
+
+.home p {
+  margin-bottom: 18px;
+  text-align: justify;
+  color: var(--muted);
+}

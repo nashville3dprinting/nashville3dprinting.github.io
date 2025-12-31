@@ -1,0 +1,30 @@
+.footer {
+  background: var(--footer-bg);
+  color: var(--muted);
+  text-align: center;
+  padding: 20px 10px;
+  border-top: 1px solid var(--footer-border);
+  position: relative;
+}
+
+.footer-content { font-size: 14px; line-height: 1.6; }
+
+.footer a { color: var(--link); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+/* Scroll-to-top button */
+.scroll-top {
+  position: fixed;
+  bottom: 20px; right: 20px;
+  padding: 10px 14px;
+  border: 1px solid var(--footer-border);
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: var(--shadow);
+  transition: background 0.2s, transform 0.1s;
+}
+.scroll-top:hover { background: var(--surface); }
+.scroll-top:active { transform: translateY(1px); }

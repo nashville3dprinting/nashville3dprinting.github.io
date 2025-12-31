@@ -1,0 +1,524 @@
+/* src/css/Gallery.css */
+
+.gallery-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.gallery-page h1 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Header row: filter left, controls right */
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+/* Keep filter (left) and display-per-page (right) on same row on mobile */
+@media (max-width: 768px) {
+  .gallery-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* prevent wrapping under the button */
+  .gallery-filter-wrapper,
+  .gallery-controls {
+    flex: 1;
+  }
+
+  .gallery-filter-wrapper {
+    justify-content: flex-start;
+  }
+
+  .gallery-controls {
+    justify-content: flex-end;
+    display: flex;
+  }
+}
+
+
+/* Filter button + popover */
+.gallery-filter-wrapper {
+  position: relative;
+}
+
+.gallery-filter-button {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--nav-border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gallery-filter-icon {
+  font-size: 1rem;
+}
+
+.gallery-filter-summary {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.gallery-filter-caret {
+  font-size: 0.7rem;
+  margin-left: 2px;
+}
+
+/* Popover panel */
+.gallery-filter-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 360px;          /* was 400px; still good for 2 cols on desktop */
+  max-height: 260px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--nav-border);
+  box-shadow: var(--shadow);
+  padding: 10px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .gallery-filter-popover {
+    min-width: 0;                          /* remove desktop min-width */
+    width: calc(100vw - 32px);             /* full width minus side padding */
+    left: 100%;                             /* center it under the button */
+    transform: translateX(-50%);
+  }
+
+  .gallery-filter-list {
+    grid-template-columns: repeat(2, 1fr); /* still 2 columns, just narrower */
+    max-height: 220px;
+  }
+}
+
+/* If the screen is *really* tiny, drop to 1 column */
+@media (max-width: 380px) {
+  .gallery-filter-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gallery-filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.gallery-filter-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Checkbox list */
+.gallery-filter-list {
+  max-height: 160px;
+  overflow-y: auto;
+  padding-right: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 8px;
+}
+
+.gallery-filter-option:first-child {
+  grid-column: 1 / -1;
+}
+
+.gallery-filter-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.gallery-filter-option input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* Footer buttons in popover */
+.gallery-filter-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.gallery-filter-clear,
+.gallery-filter-done {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--nav-border);
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.gallery-filter-clear {
+  background: transparent;
+}
+
+.gallery-filter-done {
+  background: var(--brand);
+  color: var(--brand-contrast);
+}
+
+/* Display-per-page controls (right) */
+.gallery-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+
+.gallery-controls select {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--nav-border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* Responsive Grid */
+.gallery-grid {
+  display: grid;
+  gap: 15px;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Small Tablet */
+@media (min-width: 480px) and (max-width: 599px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 479px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Cards */
+.gallery-item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* consistent ratio */
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item:hover .gallery-image-wrapper {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-title {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+/* Pagination */
+.gallery-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.gallery-pagination button {
+  margin: 0 5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--nav-border);
+  cursor: pointer;
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.gallery-pagination .active {
+  background: var(--brand);
+  color: var(--brand-contrast);
+}
+
+/* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Lightbox panel */
+.lightbox-content {
+  position: relative;
+  background: var(--surface);
+  color: var(--text);
+  padding: 20px 20px 30px;
+  border-radius: var(--radius);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden; /* desktop: no scrollbars */
+  box-shadow: var(--shadow);
+  text-align: left;
+  border: 1px solid var(--nav-border);
+}
+
+@media (max-width: 768px) {
+  .lightbox-content {
+    overflow-y: auto; /* mobile: scroll when needed */
+  }
+}
+
+/* Counter */
+.lightbox-counter {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+
+.lightbox h2 {
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+
+/* Image in lightbox */
+.lightbox img {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* Two-column info layout */
+.lightbox-info {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.lightbox-info-left,
+.lightbox-info-right {
+  flex: 1;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  border: 1px solid var(--nav-border);
+}
+
+.lightbox-info-left h3,
+.lightbox-info-right h3 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.lightbox-info .label {
+  font-weight: 600;
+}
+
+/* Description box: clamp text, no scrollbar */
+.lightbox-description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-height: 140px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+
+/* Tags */
+.tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-chip {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--nav-border);
+  font-size: 0.8rem;
+}
+
+/* Stack on mobile / small screens */
+@media (max-width: 768px) {
+  .lightbox-info {
+    flex-direction: column;
+  }
+
+  /* Description first on mobile */
+  .lightbox-info-right {
+    order: -1;
+  }
+}
+
+/* Lightbox buttons */
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 999px;
+  font-size: 18px;
+}
+
+.lightbox-prev {
+  left: 12px;
+}
+
+.lightbox-next {
+  right: 12px;
+}
+
+/* Close button */
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e11d48; /* or var(--brand) if you prefer */
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 999px;
+}
+
+/* Second row: search + sort */
+.gallery-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: nowrap;
+}
+
+/* Search takes most of the width */
+.gallery-search {
+  flex: 1;
+}
+
+.gallery-search input {
+  width: 80%;
+  border: 1px solid var(--nav-border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* Sort dropdown on the right */
+.gallery-sort {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.gallery-sort select {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--nav-border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+/* Mobile: search full width, sort hugs right */
+@media (max-width: 768px) {
+  .gallery-toolbar {
+    width: 100%;
+  }
+
+  .gallery-search {
+    flex: 1 1 100%;
+  }
+
+  .gallery-sort {
+    flex: 0 0 auto;
+  }
+}
+
+.tag-chip-clickable {
+  cursor: pointer;
+}
+
+.tag-chip-clickable:hover {
+  background: var(--brand);
+  color: var(--brand-contrast);
+  border-color: var(--brand);
+}

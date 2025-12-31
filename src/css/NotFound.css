@@ -1,0 +1,31 @@
+.notfound {
+  text-align: center;
+  margin: 60px auto;
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+}
+
+.notfound h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+.notfound p {
+  margin-bottom: 24px;
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+.back-home {
+  display: inline-block;
+  padding: 10px 16px;
+  background: var(--surface-2);
+  color: var(--text);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.back-home:hover {
+  background: var(--surface);
+}

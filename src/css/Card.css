@@ -1,0 +1,67 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--nav-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 20px auto;      /* auto centers when max-width applies */
+  box-shadow: var(--shadow);
+  transition: transform 0.15s;
+  max-width: 500px;       /* ✅ play with this value: 380–500px range works well */
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card-title {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.card-body {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-toggle {
+  border: 1px solid var(--nav-border);
+  background: var(--surface-2);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.card-toggle:hover {
+  background: var(--brand);
+  color: var(--brand-contrast);
+}
+
+/* Small screens: tighter layout */
+@media (max-width: 480px) {
+  .card {
+    padding: 14px;
+    margin: 12px auto;
+    max-width: 100%;      /* let it fill mobile width */
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+
+  .card-body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}

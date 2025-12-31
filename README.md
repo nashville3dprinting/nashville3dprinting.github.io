@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+Gallery Page:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Adding New Images
 
-## Available Scripts
+Update galleryData.js:
 
-In the project directory, you can run:
+{
+  id: 1,
+  title: "My Photo",
+  src: "/images/photo1.jpg",
+  date: "2024-01-20",
+  category: "Travel",
+  tags: ["mountains", "forest"],
+  description: "Shot during a trip to the mountains."
+}
 
-### `npm start`
+📸 Gallery System
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project includes a fully responsive, customizable gallery component designed for portfolios, product showcases, and visual collections.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+✨ Features
+Filtering
 
-### `npm test`
+Multi-select category filtering
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Filter popover with checkboxes
 
-### `npm run build`
+"Clear" and "Done" controls
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Outside-click closes the popover
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Search
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Real-time search
 
-### `npm run eject`
+Matches title, category, and tags
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Case-insensitive
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Mobile-friendly (no zoom on iOS)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Sorting
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Newest
 
-## Learn More
+Oldest
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Title A–Z
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Title Z–A
 
-### Code Splitting
+Pagination
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+User can choose items per page (12 / 24 / 48)
 
-### Analyzing the Bundle Size
+Fully recalculates when filters or search change
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Responsive Layout
 
-### Making a Progressive Web App
+4 columns on desktop
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3 on tablets
 
-### Advanced Configuration
+2 on mobile
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Consistent image sizing using aspect-ratio
 
-### Deployment
+Lightbox Viewer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Large view of the selected photo
 
-### `npm run build` fails to minify
+Arrow-key navigation (← →)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Prev/Next buttons
+
+Click outside to close
+
+ESC key closes
+
+Details panel shows:
+
+Title
+
+Date
+
+Category
+
+Tags
+
+Description
+
+Interactive Tags
+
+Clicking a tag auto-filters the gallery
+
+Lightbox closes and shows updated results
+
+Performance
+
+All images use native lazy loading
+
+Efficient filtering/searching even with large galleries
